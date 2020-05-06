@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{% block title %}{% endblock %}</title>
+		<style>{% block style %}{% endblock %}</style>
+	</head>
+	<body>
+		<h1 style="background-color: black; color: white; padding: 10px; margin-left: 25%; margin-right: 25%; width: 50%; margin-top: 10px; margin-bottom: 10px; text-align: center;">{% block head %}{% endblock %}</h1>
+		
+		{% block body %}
+		{% endblock %}
+	</body>
+</html>

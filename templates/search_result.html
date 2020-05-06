@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block title %}Search Result{% endblock %}
+
+{% block style %}
+	body
+	{
+		margin : 30px;
+	}
+	#top
+	{
+		font-size : 22px;
+		font-weight : bolder;
+		text-align : center;
+		margin-left : 26%;
+		margin-right : 25%;
+		width : 50%;
+	}
+	p
+	{
+		background-color : 	#FFAE42;
+		width : 50%;
+	}
+	li
+	{
+		background-color : #AAF0D1;
+		width : 50%;
+	}
+{% endblock %}
+
+{% block head %}Search Result{% endblock %}
+
+{% block body %}
+		<p id="top">Search Results for "{{ key }}"</p>
+		<p>Books with isbn similar to "{{key}}"</p>
+		{% for book in m1 %}
+			<ul>
+				<li><a href="{{ url_for('book', i=book.isbn) }}"> ISBN:{{ book.isbn }}, Title: {{ book.title }}, Author: {{ book.author }}, Published in: {{ book.year }} </a></li>
+			</ul>
+		{% else %}
+			<p>No books with isbn similar to "{{key}}"</p>
+		{% endfor %}
+		<p>Books with title similar to "{{key}}"</p>
+		{% for book in m2 %}
+			<ul>
+				<li><a href="{{ url_for('book', i=book.isbn) }}"> ISBN:{{ book.isbn }}, Title: {{ book.title }}, Author: {{ book.author }}, Published in: {{ book.year }} </a></li>
+			</ul>
+		{% else %}
+			<p>No books with title similar to "{{key}}"</p>
+		{% endfor %}
+		<p>Books with author similar to "{{key}}"</p>
+		{% for book in m3 %}
+			<ul>
+				<li><a href="{{ url_for('book', i=book.isbn) }}"> ISBN:{{ book.isbn }}, Title: {{ book.title }}, Author: {{ book.author }}, Published in: {{ book.year }} </a></li>
+			</ul>
+		{% else %}
+			<p>No books with author similar to "{{key}}"</p>
+		{% endfor %}
+{% endblock %}
